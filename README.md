@@ -1,3 +1,44 @@
+### Quick start
+
+npx
+```
+npx @vuepress-reco/theme-cli init my-blog
+```
+
+npm
+```
+# init
+npm install @vuepress-reco/theme-cli -g
+theme-cli init my-blog
+
+# install
+cd my-blog
+npm install
+
+# run
+npm run dev
+
+# build
+npm run build
+```
+
+yarn
+```
+# init
+yarn global add @vuepress-reco/theme-cli
+theme-cli init my-blog
+
+# install
+cd my-blog
+yarn install
+
+# run
+yarn dev
+
+# build
+yarn build
+```
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/leoxiaoge/leoxiaoge.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.

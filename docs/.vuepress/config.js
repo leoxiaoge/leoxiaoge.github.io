@@ -27,6 +27,27 @@ module.exports = {
         "icon": "reco-home"
       },
       {
+        "text": "分类",
+        "items": [
+          { 
+            "text": "知识整理",
+            "link": "/categories/frontEnd"
+          },
+          { 
+            "text": "Node知识整理",
+            "link": "/categories/frontEnd"
+          },
+          {
+            "text": "frontEnd",
+            "link": "/categories/frontEnd"
+          },
+          {
+            "text": "frontEnd",
+            "link": "/categories/frontEnd"
+          }
+        ]
+      },
+      {
         "text": "TimeLine",
         "link": "/timeline/",
         "icon": "reco-date"
@@ -42,7 +63,7 @@ module.exports = {
           },
           {
             "text": "GitHub",
-            "link": "https://github.com/recoluan",
+            "link": "https://github.com/leoxiaoge",
             "icon": "reco-github"
           },
           {
