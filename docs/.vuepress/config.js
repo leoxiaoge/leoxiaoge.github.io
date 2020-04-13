@@ -22,38 +22,28 @@ module.exports = {
   "themeConfig": {
     "nav": [
       {
-        "text": "Home",
+        "text": "主页",
         "link": "/",
         "icon": "reco-home"
       },
       {
-        "text": "分类",
-        "items": [
-          { 
-            "text": "知识整理",
-            "link": "/categories/frontEnd"
-          },
-          { 
-            "text": "Node知识整理",
-            "link": "/categories/frontEnd"
-          },
-          {
-            "text": "frontEnd",
-            "link": "/categories/frontEnd"
-          },
-          {
-            "text": "frontEnd",
-            "link": "/categories/frontEnd"
-          }
-        ]
-      },
-      {
-        "text": "TimeLine",
+        "text": "时轴",
         "link": "/timeline/",
         "icon": "reco-date"
       },
       {
-        "text": "Contact",
+        "text": "工具",
+        "icon": "reco-message",
+        "items": [
+          {
+            "text": "NPM",
+            "link": "https://www.npmjs.com/~reco_luan",
+            "icon": "reco-npm"
+          }
+        ]
+      },
+      {
+        "text": "链接",
         "icon": "reco-message",
         "items": [
           {
@@ -93,11 +83,11 @@ module.exports = {
     "blogConfig": {
       "category": {
         "location": 2,
-        "text": "Category"
+        "text": "分类"
       },
       "tag": {
         "location": 3,
-        "text": "Tag"
+        "text": "标签"
       }
     },
     "friendLink": [
