@@ -9,6 +9,7 @@ home: true
 #   background: '#fff',
 #   borderRadius: '1rem',
 # }
+bgImage: 'http://lcbblog.com/images/banner.png'
 bgImageStyle: {
   height: '450px'
 }
