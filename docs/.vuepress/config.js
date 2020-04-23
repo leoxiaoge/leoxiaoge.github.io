@@ -104,10 +104,10 @@ module.exports = {
     },
     "friendLink": [
       {
-        "title": "vuepress-theme-reco",
-        "desc": "A simple and beautiful vuepress Blog & Doc theme.",
-        "avatar": "https://vuepress-theme-reco.recoluan.com/icon_vuepress_reco.png",
-        "link": "https://vuepress-theme-reco.recoluan.com"
+        "title": "github",
+        "desc": "github",
+        "avatar": "http://lcbblog.com/images/banner.png",
+        "link": "https://github.com/leoxiaoge"
       }
     ],
     "themePicker": {

@@ -1,5 +1,5 @@
 ---
-title: nodejs npm常用命令
+title: npm常用命令
 date: 2019-10-16
 tags:
  - Node
