@@ -2,9 +2,9 @@
 title: MySQL 安装及建议
 date: 2019-12-15
 tags:
- - 工作积累
+ - Work
 categories:
- -  工作积累
+ -  Work
 ---
 
 ## **一、官网下载安装包**

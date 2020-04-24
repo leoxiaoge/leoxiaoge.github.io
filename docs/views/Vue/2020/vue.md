@@ -4,7 +4,7 @@ date: 2018-04-20
 tags:
  - Vue
 categories:
- -  Vue知识整理
+ -  Vue
 ---
 
 ![img](https://cn.vuejs.org/images/lifecycle.png)

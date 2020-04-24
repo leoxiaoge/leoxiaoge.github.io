@@ -2,9 +2,9 @@
 title: js发送get 、post请求的方法
 date: 2018-10-10
 tags:
- - 知识整理
+ - Javascript
 categories:
- -  Javascript知识整理
+ -  Javascript
 ---
 
 1. get是从服务器上获取数据，post是向服务器传送数据。

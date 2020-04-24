@@ -4,7 +4,7 @@ date: 2020-04-22
 tags:
  - Vue
 categories:
- -  Vue知识整理
+ -  Vue
 ---
 
 ## **1 Vue2.x 生命周期回顾**
