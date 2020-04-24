@@ -25,7 +25,7 @@ categories:
 
 以下是整个生命周期图示：
 
-![img](https://mmbiz.qpic.cn/mmbiz/yphVQAwjncvQiaiaSN00AgNQz4QG0iaib4PTMgRl4dDDpcCTIBxTz7Kz5LlEZ1S2bvEiaOgBM6V2A75oVCGV1OWgDsA/640?wx_fmt=other&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](https://cn.vuejs.org/images/lifecycle.png)
 
 参考：https://cn.vuejs.org/v2/guide/instance.html#生命周期图示
 
