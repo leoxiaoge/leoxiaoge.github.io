@@ -1,5 +1,5 @@
 ---
-9title: Vue 基础知识整理
+title: Vue 基础知识整理
 date: 2018-04-20
 tags:
  - Vue

@@ -43,9 +43,28 @@ module.exports = {
         "icon": "reco-message",
         "items": [
           {
-            "text": "NPM",
-            "link": "https://www.npmjs.com/~reco_luan",
-            "icon": "reco-npm"
+            "text": "JSON编辑器",
+            "link": "https://www.bejson.com/jsoneditoronline"
+          },
+          {
+            "text": "bable编译",
+            "link": "https://www.babeljs.cn/repl"
+          },
+          {
+            "text": "代码格式化",
+            "link": "https://tool.oschina.net/codeformat/html"
+          },
+          {
+            "text": "MD表格生成器",
+            "link": "https://tableconvert.com/?output=text"
+          },
+          {
+            "text": "编码转换器",
+            "link": "http://tool.chinaz.com/tools/native_ascii.aspx"
+          },
+          {
+            "text": "兼容性",
+            "link": "http://www.caniuse.com/"
           }
         ]
       },
