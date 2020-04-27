@@ -63,7 +63,11 @@ module.exports = {
             "link": "http://tool.chinaz.com/tools/native_ascii.aspx"
           },
           {
-            "text": "兼容性",
+            "text": "codelf",
+            "link": "https://unbug.github.io/codelf/"
+          },
+          {
+            "text": "caniuse",
             "link": "http://www.caniuse.com/"
           }
         ]
@@ -153,7 +157,7 @@ module.exports = {
     '/': {
       lang: 'zh-CN', // 将会被设置为 <html> 的 lang 属性
       title: '友人帐',
-      description: '前端进阶积累友人帐'
+      description: '前端进阶积累'
     }
   },
   // 搜索设置
