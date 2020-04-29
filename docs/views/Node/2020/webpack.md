@@ -13,7 +13,7 @@ webpack是一个 **模块打包工具**，支持所有的打包语法，比如 `
 
 优化打包速度最有效的方法就是保持 `nodejs` 和 `webpack` 为最新版本。
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#安装)安装
+## 安装
 
 安装 `webpack` 建议根据项目安装而不是全局安装，可以使用以下命令：
 
@@ -27,7 +27,7 @@ yarn add webpack webpack-cli --dev
 
 这个时候执行 `webpack -v` 是查不到版本号的，因为 `nodejs` 默认是去全局找 `webpack`，这个时候是找不到的，nodejs还提供了 `npx webpack -v` 这个方法。
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#运行)运行
+## 运行
 
 如果不生成配置文件，webpack会按照默认配置去打包，如果我们想自定义配置文件可以在项目根目录添加 `webpack.config.js` 来自定义配置信息，配置文件的名字也可以自定义：
 
@@ -65,7 +65,7 @@ entry: {
 
 其实，开始安装的 `webpack-cli` 就是为了在命令行工具中可以正确地执行命令行工具。
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#loader)loader
+## loader
 
 `webpack` 可以使用 `loader` 来预处理文件。这允许你打包除 `JavaScript` 之外的任何静态资源，js的打包是webpack内置的。你可以使用 `Node.js` 来很简单地编写自己的 `loader`。
 
@@ -92,7 +92,7 @@ module.exports = {
 }
 ```
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#file-loader)file-loader
+### file-loader
 
 处理文件模块的 webpack loader。
 
@@ -127,7 +127,7 @@ module.exports = {
 }
 ```
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#url-loader)url-loader
+### url-loader
 
 `file-loader` 的增强版，除了上述功能，还可以将文件转换为 `base64 URI`。
 
@@ -160,9 +160,9 @@ module.exports = {
 }
 ```
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#css相关)css相关
+### css相关
 
-#### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#style-loader-和-css-loader)style-loader 和 css-loader
+#### style-loader 和 css-loader
 
 - css-loader：加入 a.css 中引入了 b.css 和 c.css，css-loader 会将其合并成一个css文件
 - style-loader：将合并后的 css 文件挂载到 head 标签内
@@ -188,7 +188,7 @@ module.exports = {
 }
 ```
 
-#### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#sass-loader)sass-loader
+#### sass-loader
 
 如果使用 scss、less、stylus 等 css 预处理器。例如，我们要使用 sass 预处理器，首先要安装 sass-loader 和 node-sass。
 
@@ -215,7 +215,7 @@ module.exports = {
 
 loader的加载顺序是从右到左、从下到上，所以处理 scss 文件时，将 sass-loader放在最后。
 
-#### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#postcss-loader)postcss-loader
+#### postcss-loader
 
 通过 postcss-loader 来给新属性添加厂商前缀。
 
@@ -288,7 +288,7 @@ module.exports = {
 }
 ```
 
-#### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#css模块化)css模块化
+#### css模块化
 
 在 `index.js` 通过import `'./index.css'` 引入样式会全局有效，如果想在某个模块有效，如何去做呢？
 
@@ -333,7 +333,7 @@ module.exports = {
 }
 ```
 
-#### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#字体)字体
+#### 字体
 
 字体文件只需要通过 file-loader 将字体文件转移到打包文件夹内即可。
 
@@ -363,11 +363,11 @@ module.exports = {
 }
 ```
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#plugin)plugin
+## plugin
 
 可以在webpack运行到某个时刻的时候，做一些事情。
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#html-webpack-plugin)html-webpack-plugin
+### html-webpack-plugin
 
 会在打包之后，自动生成一个 html 文件，并把打包生成的 js 自动引入到这个 html 文件中。
 
@@ -405,7 +405,7 @@ module.exports = {
 }
 ```
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#clean-webpack-plugin)clean-webpack-plugin
+### clean-webpack-plugin
 
 会在打包前先清空打包目标文件夹的文件。
 
@@ -430,7 +430,7 @@ module.exports = {
 }
 ```
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#多个输出文件)多个输出文件
+## 多个输出文件
 
 ```js
 const path = require('path')
@@ -469,7 +469,7 @@ module.exports = {
 }
 ```
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#sourcemap)sourceMap
+## sourceMap
 
 如果运行打包后的文件，某个地方有错误，控制台会显示打包后的文件的某个位置有错误，如果我们想知道错误来自于源文件的所在位置，那么就需要借助 sourceMap 了。所以 sourceMap 其实就是一种映射，它知道 dist 目录 main.js 文件的某个错误，实际对应的是 src 目录下 index.js 文件的第一行。
 
@@ -488,9 +488,9 @@ sourceMap 通过配置中的 devtool 去配置，参数的含义大概有以下�
 1. develop：cheap-module-eval-source-map，提示比较全，打包速度快
 2. production：cheap-module-source-map，提示更全面，打包稍微慢
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#监听变动)监听变动
+## 监听变动
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#webpack-watch)webpack --watch
+### webpack --watch
 
 监听文件的变动，自动进行打包。
 
@@ -503,7 +503,7 @@ sourceMap 通过配置中的 devtool 去配置，参数的含义大概有以下�
 }
 ```
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#webpack-dev-server)webpack-dev-server
+### webpack-dev-server
 
 上面的html的打开的方式还是需要通过 `file` 协议打开一个本地文件，在浏览器地址是这样的：`file:///Users/reco/workSpace/git/personal/work/test.html`。这样的话发送 `AJAX` 请求就有问题了，因为发送请求需要 `http` 或者 `https` 协议，这时需要的是在本地启动一个服务，我们可以借助 `webpack-dev-server` （打包时将打包的文件放在内存中，提高打包速度）。
 
@@ -630,9 +630,9 @@ if (module.hot) {
 
 > 业务开发时，一般不是设置 hotOnly 这样才能试试显示最新代码和更改效果
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#babel)Babel
+## Babel
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#安装-2)安装
+### 安装
 
 ```bash
 # babel-loader将 webpack 与 babel 建立关联
@@ -650,7 +650,7 @@ module: {
 }
 ```
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#语法转换)语法转换
+### 语法转换
 
 这个时候还是不可以转换，还需要这样
 
@@ -675,7 +675,7 @@ module: {
 }
 ```
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#变量、对象转换)变量、对象转换
+### 变量、对象转换
 
 这个时候也只能对一些语法进行转换，比如 “箭头函数”，如果想要对 `Promise` 这些新的对象进行转换（准确来说，浏览器可能不支持新规范的的一些对象，所以需要单独封装这些方法，然后在全局注入），还需要这样：
 
@@ -731,7 +731,7 @@ module.exports = {
 
 上面配置的意思是，只需要兼容 chrome 浏览器 67 版本以上就可以了，这样转译时会根据浏览器的兼容性来合理处理转译结果。
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#组件库的封装)组件库的封装
+### 组件库的封装
 
 如果只是开发业务代码，使用上面 `presets` + `babel-polyfill` 的方式就可以了，但是 `babel-polyfill` 有一个确定就是会将变量全局注入，这里可以使用 `transform-runtime` 来以闭包（或其他）的形式来进行引入，避免全局环境的污染。
 
@@ -770,7 +770,7 @@ module: {
 npm install --save @babel/runtime-corejs2
 ```
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#babelrc)`.babelrc`
+### `.babelrc`
 
 如果 babel 的配置过于复杂，内容较多，可以将其单独放在 `.babelrc` 文件内：
 
@@ -782,7 +782,7 @@ npm install --save @babel/runtime-corejs2
 }
 ```
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#react打包)React打包
+## React打包
 
 ```bash
 npm install --save-dev @babel/preset-react
@@ -803,13 +803,13 @@ npm install --save-dev @babel/preset-react
 }
 ```
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#tree-shaking)Tree Shaking
+## Tree Shaking
 
 > 只支持 ES Module，因为 ES Module 是静态引入
 
 作用：模块按需引入，不会将全部代码引用过来
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#development)development
+### development
 
 **webpack.config.js**
 
@@ -834,11 +834,11 @@ module.exports = {
 
 如果引入的一些 `css` 或依赖不需要 `Tree Shaking`，那将 `sideEffects` 设置为 `["./a.css", "@babel/polyfill"]`，如果没有需要配置的，直接设置为 `false` 即可。
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#production)production
+### production
 
 线上环境是不需要配置 `usedExports` 的，但是还是需要配置 `package.json`。
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#配置文件整理)配置文件整理
+## 配置文件整理
 
 比如在 `Vue` 官方的脚手架中 `webpack` 的配置文件都放在 `build` 文件夹中，如果我们希望对配置文件进行整理的话，需要做一下处理：
 
@@ -890,15 +890,15 @@ module.exports = {
 
    **更新**：上面 `CleanWebpackPlugin` 的语法是 `1.0` 版本的。`2.0` 它所清空的文件夹默认就是打包输出目录，无需再单独指定。
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#code-splitting)Code Splitting
+## Code Splitting
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#原理)原理
+### 原理
 
 代码拆分——通过对公用代码的拆分来提升性能。
 
 本来代码拆分和 `webpack` 是没关系的，只不过是一种优化手段，比如将公共代码单独打包到一个文件内，业务代码打包到另一个文件内，从而提升加载体验。这里可以运用多入口文件的方式分开打包。
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#webpack实现)webpack实现
+### webpack实现
 
 `webpack4.0` 实现代码分割，分两种情况：
 
@@ -934,7 +934,7 @@ createElement().then(element => {
 
 ------
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#splitchunksplugin)SplitChunksPlugin
+### SplitChunksPlugin
 
 **魔法注释**
 
@@ -985,9 +985,9 @@ module.exports = {
 }
 ```
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#lazy-loading-chunk)Lazy Loading & Chunk
+## Lazy Loading & Chunk
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#lazy-loading)Lazy Loading
+### Lazy Loading
 
 `webpack` 可以识别 `ECMAScript` 的import返回的promise，并进行分割，实现懒加载，但是必须依赖 `babel-polyfill` 或者 `promise-polyfill`。
 
@@ -1024,7 +1024,7 @@ document.addEventListener('click', () => {
 })
 ```
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#chunk)Chunk
+### Chunk
 
 像上面的 `Lazy Loading` 所拆分打包的每一个文件都是一个 `Chunk`，而前面的配置参数`minChunks: 2` 的意思就是：当有2个以上的 · 使用到某个依赖时，才会对其进行拆分成一个 `Chunk`。
 
@@ -1041,7 +1041,7 @@ module.exports = {
 }
 ```
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#打包分析)打包分析
+## 打包分析
 
 `http://webpack.js.org/guides/code-splitting/#bundle-analysis`，这是官网对打包分析的几个总结，其中最好用的是 `webpack-bundle-analyzer`。
 
@@ -1086,7 +1086,7 @@ document.addEventListener('click', () => {
 
 比如点击登录的时候会出现一个模态框，首页的加载并不需要加载模态框的，但是点击登录按钮再加载，模态框的加载是会变慢的，这就需要下面的两个方法了：`Preloading` 和 `Prefetching`。
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#prefetching)Prefetching
+### Prefetching
 
 **非主要业务模块会在主要业务模块加载完之后，空闲时间再去加载。**
 
@@ -1111,7 +1111,7 @@ document.addEventListener('click', () => {
 })
 ```
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#preloading)Preloading
+### Preloading
 
 **而这个模式下，非主要业务模块会和主要业务模块一起加载**
 
@@ -1136,13 +1136,13 @@ document.addEventListener('click', () => {
 })
 ```
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#总结)总结
+### 总结
 
 目前考虑前端的性能优化，不能总是考虑缓存，而是主要考虑代码的使用率。
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#css代码分割)CSS代码分割
+## CSS代码分割
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#css分割)CSS分割
+### CSS分割
 
 不做处理的情况下，`webpack` 会将 `css` 打包到 `js` 中去，如果需要生成单独的 `css` 文件，可以使用 `MiniCssExtractPlugin`。
 
@@ -1196,7 +1196,7 @@ module.exports = {
 }
 ```
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#css-压缩)CSS 压缩
+### CSS 压缩
 
 ```
 optimize-css-assets-webpack-plugin
@@ -1209,7 +1209,7 @@ module.exports = {
 };
 ```
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#合并-css)合并 CSS
+### 合并 CSS
 
 将多个入口文件的 `css` 单独放到每个文件中，需要设置 `optimization.splitChunks.cacheGroups` 为对应的多个分组。
 
@@ -1268,7 +1268,7 @@ module.exports = {
 };
 ```
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#浏览器缓存)浏览器缓存
+## 浏览器缓存
 
 `contenthash` 如果内容没有变化，hash值不会变；如果内容变化，hash就会变。这样项目重新打包上线后，项目就不会全部重新加载了。
 
@@ -1299,7 +1299,7 @@ module.exports = {
 
 这是因为：代码有没有变化的逻辑关系被打包到一个叫 `manifest` 的东西来里，旧版本的 `webpack` 是会将这个东西直接打包到每个 `chunk` 文件中，而所以导致每次打包都不一致，这样的话配置好 `runtimeChunk`之后，所有的`manifest` 都会提取到名为 `runtime` 的文件内，所以就不会影响打包了。
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#shimming-垫片)Shimming (垫片)
+## Shimming (垫片)
 
 `babel-polyfill` 就是一个全局垫片，`babel-plugin-transform-runtime` 是一个局部垫片。下面介绍几种垫片：
 
@@ -1343,7 +1343,7 @@ module.exports = {
    }
    ```
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#环境变量)环境变量
+## 环境变量
 
 ```js
 // webpack.common.js
@@ -1372,16 +1372,16 @@ module.exports = (env) => {
 }
 ```
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#区分模式打包)区分模式打包
+## 区分模式打包
 
 区别：
 
 1. develop 模式下的sourceMap 是非常全的；
 2. develop 模式下的代码不需要压缩；
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#函数库打包)函数库打包
+## 函数库打包
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#指定代码运行范围)指定代码运行范围
+### 指定代码运行范围
 
 ```js
 const path = require('path')
@@ -1400,7 +1400,7 @@ module.exports = {
 
 `library` 和 `libraryTarget` 两个是配合使用的，`library` 的意思就是指定暴露的全局变量的名字，但是这个全局变量挂在到哪里呢？这就由 `libraryTarget` 来指定了。`umd` 的意思是允许它与CommonJS，AMD和全局变量一起使用，除了它还有 `this/window/global/amd` 等值可以设置。
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#略过不需要的依赖)略过不需要的依赖
+### 略过不需要的依赖
 
 ```js
 const path = require('path')
@@ -1418,7 +1418,7 @@ module.exports = {
 
 比如我的这个函数库依赖 `jquery`，但是用户也可能引用了 `jquery`，这样就会多打包一份，所以为了减少代码量，这时就可以通过 `externals` 来忽略 `jquery`（`externals` 支持 `Arrary/Object`）。
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#progressive-web-application)Progressive Web Application
+## Progressive Web Application
 
 第一次访问成功，第二次访问时如果服务挂掉了，这个时候让项目走缓存，而不是显示服务错误页面。
 
@@ -1454,7 +1454,7 @@ if ('serviceWorker' in navigator) {
 }
 ```
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#typescript-的打包配置)TypeScript 的打包配置
+## TypeScript 的打包配置
 
 ```bash
 npm install ts-loader -D
@@ -1493,9 +1493,9 @@ module.exports = {
 
 如果我们引入了 `jquery` 这个模块，要想在使用 `jquery` 语法时让typescript有效，还需要引入 `@types/jquery` 这个依赖（这是 2.0 的做法，1.0 稍有区别），不然会报错：`TS2688: Cannot find type definition file for 'unist'.`。
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#webpackdevserver-请求转发)WebpackDevServer 请求转发
+## WebpackDevServer 请求转发
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#proxy)proxy
+### proxy
 
 `WebpackDevServer` 的 `proxy` 是可以直接配置代理的：
 
@@ -1520,7 +1520,7 @@ module.exports = {
 }
 ```
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#historyapifallback)historyApiFallback
+### historyApiFallback
 
 ```js
 // webpack.config.js
@@ -1533,7 +1533,7 @@ module.exports = {
 
 如果一个项目里在写单页面应用时，某个路由我们没有配置某个路由 A，访问时会显示 `can't get A`，这是我们可以配置 `historyApiFallback: true` 来将没有配置的页面直接转向 `index.html`，详细用法见 webpack官网。
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#eslint)ESLint
+## ESLint
 
 ```bash
 # 安装
@@ -1612,7 +1612,7 @@ module.exports = {
 git 钩子 eslint src
 ```
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#提升打包速度)提升打包速度
+## 提升打包速度
 
 1. 跟上技术的迭代，保持最新（Node/Npm/Yarn）
 
@@ -1684,9 +1684,9 @@ git 钩子 eslint src
    }
    ```
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#loader-原理)Loader 原理
+## Loader 原理
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#小案例)小案例
+### 小案例
 
 创建一个可以将 字符串 `reco` 替换为 `luan` 的简单 `loader`
 
@@ -1715,7 +1715,7 @@ module.exports = {
 }
 ```
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#获取参数)获取参数
+### 获取参数
 
 ```js
 const loaderUtils = require('loader-utils')
@@ -1751,7 +1751,7 @@ module.exports = {
 }
 ```
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#丰富反馈内容)丰富反馈内容
+### 丰富反馈内容
 
 借助 `this.callback`：
 
@@ -1772,7 +1772,7 @@ module.exports = function (source) {
 }
 ```
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#resolveloader)resolveLoader
+### resolveLoader
 
 作用是寻找 loader 时可以直接去我们自定义的文件夹内去寻找。
 
@@ -1803,7 +1803,7 @@ module.exports = {
 }
 ```
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#异步处理)异步处理
+### 异步处理
 
 ```js
 const loaderUtils = require('loader-utils')
@@ -1829,9 +1829,9 @@ module.exports = function (source) {
 
 > loader 还可以做哪些工作呢？比如 给代码添加 try catch，本地化，替换中英文
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#plugin-原理)Plugin 原理
+## Plugin 原理
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#简单-plugin)简单 Plugin
+### 简单 Plugin
 
 ```js
 // /plugins/copyright-webpack-plugin.js
@@ -1888,7 +1888,7 @@ module.exports = {
 }
 ```
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#node-调试)Node 调试
+### Node 调试
 
 ```json
 // package.json
@@ -1919,9 +1919,9 @@ module.exports = CopyrightWebpackPlugin
 
 打开控制台的 Node 图标，就进入了 Node 调试
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#bundler-源码编写)Bundler 源码编写
+## Bundler 源码编写
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#入口文件分析)入口文件分析
+### 入口文件分析
 
 ```js
 const fs = require('fs')
@@ -1978,7 +1978,7 @@ const moduleInfo = moduleAnalyser('./src/index.js')
 console.log(moduleInfo)
 ```
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#依赖图谱)依赖图谱
+### 依赖图谱
 
 ```js
 const fs = require('fs')
@@ -2067,7 +2067,7 @@ const graphInfo = makeDependenciesGraph('./src/index.js')
 console.log(graphInfo)
 ```
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#生成可用代码)生成可用代码
+### 生成可用代码
 
 ```js
 const fs = require('fs')
@@ -2191,17 +2191,17 @@ const code = generateCode('./src/index.js')
 console.log(code)
 ```
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#深入学习)深入学习
+## 深入学习
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#createreactapp)CreateReactApp
+### CreateReactApp
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#vue-cli)vue-cli
+### vue-cli
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#vue)Vue
+### Vue
 
-## [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#其他)其他
+## 其他
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#清除性能报错)清除性能报错
+### 清除性能报错
 
 ```js
 module.exports = {
@@ -2209,7 +2209,7 @@ module.exports = {
 }
 ```
 
-### [#](https://www.recoluan.com/views/frontEnd/2019/072401.html#启动一个服务)启动一个服务
+### 启动一个服务
 
 ```bash
 npm install http-server -D
