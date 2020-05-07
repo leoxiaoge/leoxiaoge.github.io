@@ -16,10 +16,8 @@ categories:
 ```
 var vm = new Vue({
   el: '#app',
-  data: function () {
-    return {
-      
-    }
+  data: {
+    
   },
   mounted: function () {
     
