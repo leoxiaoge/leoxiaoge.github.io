@@ -43,6 +43,10 @@ module.exports = {
         "icon": "reco-message",
         "items": [
           {
+            "text": "程序员在线工具",
+            "link": "http://www.ofmonkey.com"
+          },
+          {
             "text": "JSON编辑器",
             "link": "https://www.bejson.com/jsoneditoronline"
           },
