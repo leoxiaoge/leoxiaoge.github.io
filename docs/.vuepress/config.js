@@ -48,6 +48,10 @@ module.exports = {
           },
           {
             "text": "JSON编辑器",
+            "link": "https://json.cn/"
+          },
+          {
+            "text": "JSON工具",
             "link": "https://www.bejson.com/jsoneditoronline"
           },
           {
