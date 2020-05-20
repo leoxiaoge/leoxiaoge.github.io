@@ -2,9 +2,9 @@
 title: this,call,apply,bind 总结
 date: 2018-08-10
 tags:
- - Javascript
+ - JavaScript
 categories:
- -  Javascript
+ -  JavaScript
 ---
 
 > 对js中的一些基本的很重要的概念做一些总结，对进一步学习js很重。

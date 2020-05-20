@@ -1,10 +1,10 @@
 ---
-title: javascript的this用法
+title: JavaScript的this用法
 date: 2018-09-10
 tags:
- - Javascript
+ - JavaScript
 categories:
- -  Javascript
+ -  JavaScript
 ---
 
 `this`是 JavaScript 语言的一个关键字。

@@ -2,9 +2,9 @@
 title: JavaScript Promise 对象
 date: 2019-07-10
 tags:
- - Javascript
+ - JavaScript
 categories:
- -  Javascript
+ -  JavaScript
 ---
 
 ## 个人常用方法

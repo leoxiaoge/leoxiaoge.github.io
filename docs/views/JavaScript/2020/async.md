@@ -2,9 +2,9 @@
 title: ES7异步编程：async/await理解
 date: 2019-08-10
 tags:
- - Javascript
+ - JavaScript
 categories:
- -  Javascript
+ -  JavaScript
 ---
 
 在最新的ES7（ES2017）中提出的前端异步特性：async、await。

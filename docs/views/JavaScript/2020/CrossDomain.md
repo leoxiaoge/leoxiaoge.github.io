@@ -2,9 +2,9 @@
 title: 前端常见跨域解决方案
 date: 2018-05-10
 tags:
- - Javascript
+ - JavaScript
 categories:
- -  Javascript
+ -  JavaScript
 ---
 
 ## **什么是跨域？**
