@@ -7,12 +7,14 @@ categories:
  -  Java
 ---
 
+```
+mvn spring-boot:run
+```
+
 spring-boot的启动方式主要有三种:
 
 1. 运行带有main方法类
-
 2. 通过命令行 java -jar 的方式
-
 3. 通过spring-boot-plugin的方式
 
 ## 一、执行带有main方法类
