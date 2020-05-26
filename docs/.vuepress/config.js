@@ -77,6 +77,10 @@ module.exports = {
           {
             "text": "caniuse",
             "link": "http://www.caniuse.com/"
+          },
+          {
+            "text": "chrome",
+            "link": "chrome://inspect/#devices"
           }
         ]
       },
