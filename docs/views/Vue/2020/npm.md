@@ -19,8 +19,6 @@ categories:
 
 　　2. 进入文件夹，终端(cmd)运行 **npm init**
 
-　　![img](https://img2018.cnblogs.com/blog/1123519/201904/1123519-20190416104328203-605495593.png)
-
 　　完成后会在目录下生成一个 package.json 文件
 
 　　我们可以根据自己的需要补充文件内容
@@ -70,10 +68,6 @@ categories:
 　　4. 接下来新建两个文件夹 src(开发目录)，dist(发布目录)
 
 　　5. 然后我们就可以在 src 目录下编写自己的组件吧
-
-　　我的文件目录
-
-　　![img](https://img2018.cnblogs.com/blog/1123519/201904/1123519-20190416153543318-888107626.png)
 
 　　app.vue
 
@@ -167,8 +161,6 @@ module.exports = {
 
 　　文件写好后，我们运行 **npm run build**，结果是会在 dist 目录下生成一个 **helloName.min.js**，就是我们在 webpack.dev.conf.js 中 **filename** 的值
 
-　　![img](https://img2018.cnblogs.com/blog/1123519/201904/1123519-20190416153758518-513575304.png)
-
 　　6. 将 package.json 中的 **main** 字段指向新生成的 helloName.min.js
 
 　　7. 新建一个 **.npmignore** 文件（npm忽略文件），可以把不需要发布的文件忽略，如果只有 .gitignore，没有 .npmignore，则会使用 .gitignore
@@ -196,17 +188,13 @@ gulpfile.js
 
 　　  会输入你的用户名、密码和邮箱
 
-　　3. 登录成功后，执行 **npm publish**，就发布成功啦，我们可以在官网看到
-
-　　![img](https://img2018.cnblogs.com/blog/1123519/201904/1123519-20190416160949556-955356310.png)
+　　3. 登录成功后，执行 **npm publish**，就发布成功啦
 
 ## **三、使用自己的npm包**
 
  　接下来我们在其他项目中使用自己刚发布的npm包
 
-　　1. 我们进入我们的项目目录运行 **npm** (或cnpm) **install bing-test-publish-npm**(我们刚发布的包)
-
-　　![img](https://img2018.cnblogs.com/blog/1123519/201904/1123519-20190416161507210-807669632.png)
+　　1. 我们进入我们的项目目录运行 **npm** (或cnpm) **install bing-test-publish-npm**
 
 　　2. 在需要使用此包的页面引入，并使用
 
@@ -283,12 +271,6 @@ export default {
 　　　　重新安装 npm **install** bing-test-publish-npm
 
 　　　　可通过 npm **list** bing-test-publish-npm 查看到版本已是最新的版本
-
-**五、最终效果**
-
-　　![img](https://img2018.cnblogs.com/blog/1123519/201904/1123519-20190416170216179-870538932.png)
-
- 
 
 主要参考文章
 
