@@ -7,6 +7,17 @@ categories:
  -  Work
 ---
 
+删除本地文件后，想从远程仓库中从新Pull最新版文件。
+
+Git提示：up-to-date，但未得到删除的文件
+
+原因：当前本地库处于另一个分支中，需将本分支发Head重置至master.
+
+```
+git checkout master 
+git reset --hard
+```
+
 git在切代码分支时经常碰到这样的问题：error: Your local changes to the following files would be overwritten by merge
 有时本地并没有需要保存的修改，所以可以通过以下方式把本地文件强制覆盖掉。
 
