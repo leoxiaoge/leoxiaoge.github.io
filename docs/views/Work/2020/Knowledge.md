@@ -7,14 +7,14 @@ categories:
  -  Work
 ---
 
-### HTML&CSS：
+## HTML&CSS：
 
 - 浏览器内核
 - 盒模型、flex布局、两/三栏布局、水平/垂直居中；
 - BFC、清除浮动；
 - css3动画、H5新特性。
 
-### JavaScript：
+## JavaScript：
 
 - 继承、原型链、this指向、设计模式、call, apply, bind,；
 - new实现、防抖节流、let, var, const 区别、暂时性死区、event、loop；
@@ -22,7 +22,7 @@ categories:
 - async/await的优缺点；
 - 闭包、垃圾回收和内存泄漏、数组方法、数组乱序, 数组扁平化、事件委托、事件监听、事件模型
 
-### Vue:
+## Vue:
 
 - vue数据双向绑定原理；
 - vue computed原理、computed和watch的区别；
@@ -30,7 +30,7 @@ categories:
 - mvvm模式、mvc模式理解；
 - vue dom diff、vuex、vue-router
 
-**网络：**
+## **网络：**
 
 - HTTP1, HTTP2, HTTPS、常见的http状态码；
 - 浏览从输入网址到回车发生了什么；
@@ -38,7 +38,7 @@ categories:
 - 前端跨域、浏览器缓存、cookie, session, token, localstorage, sessionstorage；
 - TCP连接(三次握手, 四次挥手)
 
-**性能相关**
+## **性能相关**
 
 - 图片优化的方式
 - 500 张图片，如何实现预加载优化
@@ -47,12 +47,9 @@ categories:
 
 另外更全面的面试题集我也在整理中，先给个预告图：
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/nnic7Ckj9Nq1vVvv6CBEia6PREdWGXpvibC32iaBRicTck3DdIicrvqMZPjXHZ62UvtY1lFcjfy2IkN0kQuic2NuqSqIA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
 
-**下面进入正题：**
-
-
+### **下面进入正题：**
 
 - 1. 介绍一下 js 的数据类型有哪些,值是如何存储的
 - 2. && 、 ||和!! 运算符分别能做什么
@@ -89,7 +86,7 @@ categories:
 - 33. 谈谈JS的运行机制
 - 34. arguments 的对象是什么？
 - 35. 为什么在调用这个函数时，代码中的`b`会变成一个全局变量?
-- 36.简单介绍一下V8引擎的垃圾回收机制
+- 36. 简单介绍一下V8引擎的垃圾回收机制
 - 37. 哪些操作会造成内存泄漏？
 - 38. ECMAScript 是什么？
 - 39. ECMAScript 2015（ES6）有哪些新特性？
@@ -98,12 +95,8 @@ categories:
 - 42. 什么是类？
 - 43. 什么是模板字符串？
 - 44. 什么是对象解构？
-- 45 什么是`Set`对象，它是如何工作的？
+- 45. 什么是`Set`对象，它是如何工作的？
 - 46. 什么是Proxy？
-
-————
-*高能预警分割线⚡*—————
-
 - 47. 写一个通用的事件侦听器函数，为什么要用它？
 - 48. 什么是函数式编程? JavaScript的哪些特性使其成为函数式语言的候选语言？
 - 49. 什么是高阶函数？
@@ -125,7 +118,7 @@ categories:
 - 65. 什么是设计模式？
 - 66. 9种前端常见的设计模式
 
-### 1. 介绍一下 js 的数据类型有哪些,值是如何存储的
+## 1. 介绍一下 js 的数据类型有哪些,值是如何存储的
 
 具体可看我之前的文章：「前端料包」可能是最透彻的JavaScript数据类型详解
 
@@ -137,13 +130,13 @@ JavaScript一共有8种数据类型，其中有7种基本数据类型：Undefine
 
 引用数据类型：同时存储在**栈**（stack）和**堆**（heap）中，占据空间大、大小不固定。引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址后从堆中获得实体。
 
-### 2. && 、 ||和!! 运算符分别能做什么
+## 2. && 、 ||和!! 运算符分别能做什么
 
 - `&&` 叫逻辑与，在其操作数中找到第一个虚值表达式并返回它，如果没有找到任何虚值表达式，则返回最后一个真值表达式。它采用短路来防止不必要的工作。
 - `||` 叫逻辑或，在其操作数中找到第一个真值表达式并返回它。这也使用了短路来防止不必要的工作。在支持 ES6 默认函数参数之前，它用于初始化函数中的默认参数值。
 - `!!` 运算符可以将右侧的值强制转换为布尔值，这也是将值转换为布尔值的一种简单方法。
 
-### 3. js的数据类型的转换
+## 3. js的数据类型的转换
 
 在 JS 中类型转换只有三种情况，分别是：
 
@@ -155,14 +148,12 @@ JavaScript一共有8种数据类型，其中有7种基本数据类型：Undefine
 null和underfined没有.toString方法
 ```
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/nnic7Ckj9Nq1vVvv6CBEia6PREdWGXpvibC1v0boOADKpRspric4bjldMdiagicfiaJnJWSLMUf9HiaKu9PGpgHxLicf8nw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
 
 
 此外还有一些操作符会存在隐式转换，此处不做展开，可自行百度00
 
-
-
-### 4. JS中数据类型的判断（ typeof，instanceof，constructor，Object.prototype.toString.call()
+## 4. JS中数据类型的判断（ typeof，instanceof，constructor，Object.prototype.toString.call()
 
 **（1）typeof**
 
@@ -236,7 +227,7 @@ console.log(a.call(undefined));
 console.log(a.call(null));
 ```
 
-### 5. 介绍 js 有哪些内置对象？
+## 5. 介绍 js 有哪些内置对象？
 
 涉及知识点：
 
@@ -308,14 +299,14 @@ js 中的内置对象主要指的是在程序执行前存在全局作用域里�
 《标准内置对象的分类》
 《JS 所有内置对象属性和方法汇总》
 
-### 6. undefined 与 undeclared 的区别？
+## 6. undefined 与 undeclared 的区别？
 
 已在作用域中声明但还没有赋值的变量，是 undefined 的。相反，还没有在作用域中声明过的变量，是 undeclared 的。
 
 对于 undeclared 变量的引用，浏览器会报引用错误，如 ReferenceError: b is not defined 。但是我们可以使用 typ
 eof 的安全防范机制来避免报错，因为对于 undeclared（或者 not defined ）变量，typeof 会返回 "undefined"。
 
-### 7. null 和 undefined 的区别？
+## 7. null 和 undefined 的区别？
 
 首先 Undefined 和 Null 都是基本数据类型，这两个基本数据类型分别都只有一个值，就是 undefined 和 null。
 
@@ -333,7 +324,7 @@ undefined 在 js 中不是一个保留字，这意味着我们可以使用 undef
 
 《JavaScript 深入理解之 undefined 与 null》
 
-### 8. {} 和 [] 的 valueOf 和 toString 的结果是什么？
+## 8. {} 和 [] 的 valueOf 和 toString 的结果是什么？
 
 ```
 {} 的 valueOf 结果为 {} ，toString 的结果为 "[object Object]"
@@ -341,7 +332,7 @@ undefined 在 js 中不是一个保留字，这意味着我们可以使用 undef
 [] 的 valueOf 结果为 [] ，toString 的结果为 ""
 ```
 
-### 9. Javascript 的作用域和作用域链
+## 9. Javascript 的作用域和作用域链
 
 **作用域：** 作用域是定义变量的区域，它有一套访问变量的规则，这套规则来管理浏览器引擎如何在当前作用域以及嵌套的作用域中根据变量（标识符）进行变量查找。
 
@@ -360,7 +351,7 @@ undefined 在 js 中不是一个保留字，这意味着我们可以使用 undef
 
 也可以看看我的文章：「前端料包」深究JavaScript作用域（链）知识点和闭包
 
-### 10. javascript 创建对象的几种方式？
+## 10. javascript 创建对象的几种方式？
 
 ```
 我们一般使用字面量的形式直接创建对象，但是这种创建方式对于创建大量相似对象的时候，会产生大量的重复代码。但 js
@@ -385,7 +376,7 @@ undefined 在 js 中不是一个保留字，这意味着我们可以使用 undef
 详细资料可以参考：
 《JavaScript 深入理解之对象创建》
 
-### 11. JavaScript 继承的几种实现方式？
+## 11. JavaScript 继承的几种实现方式？
 
 ```
 我了解的 js 中实现继承的几种方式有：
@@ -406,7 +397,7 @@ undefined 在 js 中不是一个保留字，这意味着我们可以使用 undef
 详细资料可以参考：
 《JavaScript 深入理解之继承》
 
-### 12. 寄生式组合继承的实现？
+## 12. 寄生式组合继承的实现？
 
 ```
 function Person(name) {
@@ -431,7 +422,7 @@ Student.prototype.sayMyGrade = function() {
 };
 ```
 
-### 13. 谈谈你对this、call、apply和bind的理解
+## 13. 谈谈你对this、call、apply和bind的理解
 
 详情可看我之前的文章：「前端料包」一文彻底搞懂JavaScript中的this、call、apply和bind
 
@@ -442,9 +433,9 @@ Student.prototype.sayMyGrade = function() {
 5. 箭头函数中this比较特殊,箭头函数this为父作用域的this，不是调用时的this.要知道前四种方式,都是调用时确定,也就是动态的,而箭头函数的this指向是静态的,声明的时候就确定了下来；
 6. apply、call、bind都是js给函数内置的一些API，调用他们可以为函数指定this的执行,同时也可以传参。
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/nnic7Ckj9Nq1vVvv6CBEia6PREdWGXpvibCqZWFXiaicIibzjHOeLLgSibcrbDVDTGzXVyjrAsaEVCebuQiazByX6mRJJg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-### 14. JavaScript 原型，原型链？有什么特点？
+
+## 14. JavaScript 原型，原型链？有什么特点？
 
 在 js 中我们是使用构造函数来新建一个对象的，每一个构造函数的内部都有一个 prototype 属性值，这个属性值是一个对
 象，这个对象包含了可以由该构造函数的所有实例共享的属性和方法。当我们使用构造函数新建一个对象后，在这个对象的内部
@@ -468,13 +459,13 @@ JavaScript 对象是通过引用来传递的，我们创建的每个新对象实
 
 也可以看看我写的：「前端料包」深入理解JavaScript原型和原型链
 
-### 15. js 获取原型的方法？
+## 15. js 获取原型的方法？
 
 - p.**proto**
 - p.constructor.prototype
 - Object.getPrototypeOf(p)
 
-### 16. 什么是闭包，为什么要用它？
+## 16. 什么是闭包，为什么要用它？
 
 **闭包是指有权访问另一个函数作用域内变量的函数**，创建闭包的最常见的方式就是在一个函数内创建另一个函数，创建的函数可以
 访问到当前函数的局部变量。
@@ -500,7 +491,7 @@ a1();    //2  第二次调用n变量还在内存中
 
 其实闭包的本质就是作用域链的一个特殊的应用，只要了解了作用域链的创建过程，就能够理解闭包的实现原理。
 
-### 17. 什么是 DOM 和 BOM？
+## 17. 什么是 DOM 和 BOM？
 
 **DOM** 指的是文档对象模型，它指的是把文档当做一个对象来对待，这个对象主要定义了处理网页内容的方法和接口。
 
@@ -520,7 +511,7 @@ on 对象、navigator 对象、screen 对象等子对象，并且 DOM 的最根�
 
 《JavaScript 学习总结（三）BOM 和 DOM 详解》
 
-### 18. 三种事件模型是什么？
+## 18. 三种事件模型是什么？
 
 **事件** 是用户操作网页时发生的交互动作或者网页本身的一些操作，现代浏览器一共有三种事件模型。
 
@@ -532,7 +523,7 @@ on 对象、navigator 对象、screen 对象等子对象，并且 DOM 的最根�
 
 《一个 DOM 元素绑定多个事件时，先执行冒泡还是捕获》
 
-### 19. 事件委托是什么？
+## 19. 事件委托是什么？
 
 **事件委托** 本质上是利用了浏览器事件冒泡的机制。因为事件在冒泡过程中会上传到父节点，并且父节点可以通过事件对象获取到
 目标节点，因此可以把子节点的监听函数定义在父节点上，由父节点的监听函数统一处理多个子元素的事件，这种方式称为事件代理。
@@ -543,7 +534,7 @@ on 对象、navigator 对象、screen 对象等子对象，并且 DOM 的最根�
 
 《JavaScript 事件委托详解》
 
-### 20. 什么是事件传播?
+## 20. 什么是事件传播?
 
 当**事件**发生在DOM元素上时，该事件并不完全发生在那个元素上。在“当事件发生在DOM元素上时，该事件并不完全发生在那个元素上。在“冒泡阶段”中，事件冒泡或向上传播至父级，祖父母，祖父母或父级，直到到达window为止；而在“捕获阶段”中，事件从window开始向下触发元素 事件或event.target。
 
@@ -555,7 +546,7 @@ on 对象、navigator 对象、screen 对象等子对象，并且 DOM 的最根�
 2. 目标阶段–事件已达到目标元素。
 3. 冒泡阶段–事件从目标元素冒泡，然后上升到每个元素，直到到达 window。
 
-### 21. 什么是事件捕获？
+## 21. 什么是事件捕获？
 
 当事件发生在 DOM 元素上时，该事件并不完全发生在那个元素上。在捕获阶段，事件从window开始，一直到触发事件的元素。`window----> document----> html----> body ---->目标元素`
 
@@ -614,7 +605,7 @@ addEvent(document, 'DOMContentLoaded', () => {
 
 `addEventListener`方法具有第三个可选参数`useCapture`，其默认值为`false`，事件将在冒泡阶段中发生，如果为true，则事件将在捕获阶段中发生。如果单击`child`元素，它将分别在控制台上打印`window`，`document`，`html`，`grandparent`和`parent`，这就是**事件捕获**。
 
-### 22. 什么是事件冒泡？
+## 22. 什么是事件冒泡？
 
 事件冒泡刚好与事件捕获相反，`当前元素---->body ----> html---->document ---->window`。当事件发生在DOM元素上时，该事件并不完全发生在那个元素上。在冒泡阶段，事件冒泡，或者事件发生在它的父代，祖父母，祖父母的父代，直到到达window为止。
 
@@ -673,7 +664,7 @@ addEvent(document, 'DOMContentLoaded', () => {
 
 `addEventListener`方法具有第三个可选参数`useCapture`，其默认值为`false`，事件将在冒泡阶段中发生，如果为true，则事件将在捕获阶段中发生。如果单击`child`元素，它将分别在控制台上打印`child`，`parent`，`grandparent`，`html`，`document`和`window`，这就是**事件冒泡**。
 
-### 23. DOM 操作——怎样添加、移除、移动、复制、创建和查找节点？
+## 23. DOM 操作——怎样添加、移除、移动、复制、创建和查找节点？
 
 （1）创建新节点
 
@@ -720,13 +711,11 @@ removeAttribute(key);
 
 《原生 JS 中 DOM 节点相关 API 合集》
 
-### 24. js数组和对象有哪些原生方法,列举一下
+## 24. js数组和对象有哪些原生方法,列举一下
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/nnic7Ckj9Nq1vVvv6CBEia6PREdWGXpvibCqVhsZULXVGRapb15XAUJUVVoIQibT82Cv6Gz0zsibYO0iaLjr3cjQDw6g/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/nnic7Ckj9Nq1vVvv6CBEia6PREdWGXpvibCJqK86KGpzLJcqpHicdBPGg8cfpbaQCG3hKYCBwYcjgf3enxVZbZsdcg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-### 25. 常用的正则表达式
+## 25. 常用的正则表达式
 
 ```
 //（1）匹配 16 进制颜色值
@@ -762,13 +751,13 @@ var cPattern = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋�
 // (11)强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间)：var pwd = /^(?=.\d)(?=.[a-z])(?=.[A-Z]).{8,10}$/
 ```
 
-### 26. Ajax 是什么? 如何创建一个 Ajax？
+## 26. Ajax 是什么? 如何创建一个 Ajax？
 
 我对 ajax 的理解是，它是一种异步通信的方法，通过直接由 js 脚本向服务器发起 http 通信，然后根据服务器返回的数据，更新网页的相应部分，而不用刷新整个页面的一种方法。
 
 #### 创建步骤：
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/nnic7Ckj9Nq1vVvv6CBEia6PREdWGXpvibC2O2AtiaC07ibiakp5qlyBKib3zSQGbAcucibv34CrpCBvBSW1evEia1oKBtA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+  创建xhr对象——配置Ajax请求地址——发送请求——监听请求，接受响应
 
 #### 面试手写（原生）：
 
@@ -848,7 +837,7 @@ function getJSON(url) {
 }
 ```
 
-### 27. js 延迟加载的方式有哪些？
+## 27. js 延迟加载的方式有哪些？
 
 js 的加载、解析和执行会阻塞页面的渲染过程，因此我们希望 js 脚本能够尽可能的延迟加载，提高页面的渲染速度。
 
@@ -865,7 +854,7 @@ js 的加载、解析和执行会阻塞页面的渲染过程，因此我们希�
 
 《HTML 5 `<script>` `async` 属性》
 
-### 28. 谈谈你对模块化开发的理解？
+## 28. 谈谈你对模块化开发的理解？
 
 我对模块的理解是，一个模块是实现一个特定功能的一组方法。在最开始的时候，js 只实现一些简单的功能，所以并没有模块的概念
 ，但随着程序越来越复杂，代码的模块化开发变得越来越重要。
@@ -887,7 +876,7 @@ js 的加载、解析和执行会阻塞页面的渲染过程，因此我们希�
 
 《Module 的语法》
 
-### 29. js 的几种模块规范？
+## 29. js 的几种模块规范？
 
 js 中现在比较成熟的有四种模块加载方案：
 
@@ -896,7 +885,7 @@ js 中现在比较成熟的有四种模块加载方案：
 - 第三种是 CMD 方案，这种方案和 AMD 方案都是为了解决异步模块加载的问题，sea.js 实现了 CMD 规范。它和require.js的区别在于模块定义时对依赖的处理不同和对依赖模块的执行时机的处理不同。
 - 第四种方案是 ES6 提出的方案，使用 import 和 export 的形式来导入导出模块。这种方案和上面三种方案都不同。参考 61。
 
-### 30. AMD 和 CMD 规范的区别？
+## 30. AMD 和 CMD 规范的区别？
 
 它们之间的主要区别有两个方面。
 
@@ -931,7 +920,7 @@ define(["./a", "./b"], function(a, b) {
 
 《前端模块化，AMD 与 CMD 的区别》
 
-### 31. ES6 模块与 CommonJS 模块、AMD、CMD 的差异。
+## 31. ES6 模块与 CommonJS 模块、AMD、CMD 的差异。
 
 - 1.`CommonJS` 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。`CommonJS` 模块输出的是值的
 
@@ -939,7 +928,7 @@ define(["./a", "./b"], function(a, b) {
 
 - 2.`CommonJS` 模块是运行时加载，ES6 模块是编译时输出接口。`CommonJS` 模块就是对象，即在输入时是先加载整个模块，生成一个对象，然后再从这个对象上面读取方法，这种加载称为“运行时加载”。而 ES6 模块不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成。
 
-### 32. requireJS的核心原理是什么？
+## 32. requireJS的核心原理是什么？
 
 require.js 的核心原理是通过动态创建 script 脚本来异步引入模块，然后对每个脚本的 load 事件进行监听，如果每个脚本都加载完成了，再调用回调函数。
 
@@ -950,7 +939,7 @@ require.js 的核心原理是通过动态创建 script 脚本来异步引入模�
 
 《requireJS 原理分析》]https://www.jianshu.com/p/5a39535909e4
 
-### 33. 谈谈JS的运行机制
+## 33. 谈谈JS的运行机制
 
 #### 1. js单线程
 
@@ -967,13 +956,6 @@ js代码执行过程中会有很多任务，这些任务总的分成两类：
 - 异步任务
 
 当我们打开网站时，网页的渲染过程就是一大堆同步任务，比如页面骨架和页面元素的渲染。而像加载图片音乐之类占用资源大耗时久的任务，就是异步任务。，我们用导图来说明：
-
-![img](https://mmbiz.qpic.cn/mmbiz_png/nnic7Ckj9Nq1vVvv6CBEia6PREdWGXpvibChHerialhrEyBMFmDDfzBWc37jVRM6fG4arb7b7sO0eMgFRuZgIyzOBQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
-
-
-我们解释一下这张图：
-
-
 
 - 同步和异步任务分别进入不同的执行"场所"，同步的进入主线程，异步的进入`Event Table`并注册函数。
 - 当指定的事情完成时，`Event Table`会将这个函数移入`Event Queue`。
@@ -1033,7 +1015,7 @@ console.log(5)
 
 《这一次，彻底弄懂 JavaScript 执行机制》
 
-### 34. arguments 的对象是什么？
+## 34. arguments 的对象是什么？
 
 arguments对象是函数中传递的参数值的集合。它是一个类似数组的对象，因为它有一个length属性，我们可以使用数组索引表示法arguments[1]来访问单个值，但它没有数组中的内置方法，如：forEach、reduce、filter和map。
 
@@ -1071,7 +1053,7 @@ const four = (...args) => args;
 
 这会自动将所有参数值放入数组中。
 
-### 35. 为什么在调用这个函数时，代码中的`b`会变成一个全局变量?
+## 35. 为什么在调用这个函数时，代码中的`b`会变成一个全局变量?
 
 ```
 function myFunc() {
@@ -1103,7 +1085,7 @@ function myFunc() {
 myFunc();
 ```
 
-### 36. 简单介绍一下 V8 引擎的垃圾回收机制
+## 36. 简单介绍一下 V8 引擎的垃圾回收机制
 
 ```
 v8 的垃圾回收机制基于分代回收机制，这个机制又基于世代假说，这个假说有两个特点，一是新生的对象容易早死，另一个是不死的对象会活得更久。基于这个假说，v8 引擎将内存分为了新生代和老生代。
@@ -1135,7 +1117,7 @@ v8 的垃圾回收机制基于分代回收机制，这个机制又基于世代�
 
 《JavaScript 中的垃圾回收》
 
-### 37. 哪些操作会造成内存泄漏？
+## 37. 哪些操作会造成内存泄漏？
 
 - 1.意外的全局变量
 - 2.被遗忘的计时器或回调函数
@@ -1160,7 +1142,7 @@ v8 的垃圾回收机制基于分代回收机制，这个机制又基于世代�
 以下38~46条是ECMAScript 2015(ES6)中常考的基础知识点
 ```
 
-### 38. ECMAScript 是什么？
+## 38. ECMAScript 是什么？
 
 ECMAScript 是编写脚本语言的标准，这意味着JavaScript遵循ECMAScript标准中的规范变化，因为它是JavaScript的蓝图。
 
@@ -1177,7 +1159,7 @@ JavaScript（狭义的JavaScript）做什么都要问问ECMAScript我能不能�
 
 那个人被创造出来也好委屈，自己被创造出来完全是因为要约束JavaScript。
 
-### 39. ECMAScript 2015（ES6）有哪些新特性？
+## 39. ECMAScript 2015（ES6）有哪些新特性？
 
 - 块作用域
 - 类
@@ -1192,7 +1174,7 @@ JavaScript（狭义的JavaScript）做什么都要问问ECMAScript我能不能�
 - 函数默认参数
 - rest 和展开
 
-### 40. `var`,`let`和`const`的区别是什么？
+## 40. `var`,`let`和`const`的区别是什么？
 
 var声明的变量会挂载在window上，而let和const声明的变量不会：
 
@@ -1293,7 +1275,7 @@ obj.a = 10000;
 console.log(obj);　　// {a:10000,name:'apple'}
 ```
 
-### 41. 什么是箭头函数？
+## 41. 什么是箭头函数？
 
 箭头函数表达式的语法比函数表达式更简洁，并且没有自己的`this，arguments，super或new.target`。箭头函数表达式更适用于那些本来需要匿名函数的地方，并且它不能用作构造函数。
 
@@ -1346,7 +1328,7 @@ const data = {
 
 箭头函数没有自己的this值。它捕获词法作用域函数的this值，在此示例中，addAll函数将复制computeResult 方法中的this值，如果我们在全局作用域声明箭头函数，则this值为 window 对象。
 
-### 42. 什么是类？
+## 42. 什么是类？
 
 类(class)是在 JS 中编写构造函数的新方法。它是使用构造函数的语法糖，在底层中使用仍然是原型和基于原型的继承。
 
@@ -1459,7 +1441,7 @@ console.log(s.toString === Object.prototype.toString); // true
 
 《Class 的基本语法》
 
-### 43. 什么是模板字符串？
+## 43. 什么是模板字符串？
 
 模板字符串是在 JS 中创建字符串的一种新方法。我们可以通过使用反引号使模板字符串化。
 
@@ -1506,7 +1488,7 @@ function greet(name) {
 
 在 ES5 版本中，如果需要在字符串中添加表达式或值，则需要使用`+`运算符。在模板字符串s中，我们可以使用`${expr}`嵌入一个表达式，这使其比 ES5 版本更整洁。
 
-### 44. 什么是对象解构？
+## 44. 什么是对象解构？
 
 对象析构是从对象或数组中获取或提取值的一种新的、更简洁的方法。假设有如下的对象：
 
@@ -1546,7 +1528,7 @@ let { firstName: fName, lastName: lName, position, yearHired } = employee;
 let { firstName = "Mark", lastName: lName, position, yearHired } = employee;
 ```
 
-### 45. 什么是`Set`对象，它是如何工作的？
+## 45. 什么是`Set`对象，它是如何工作的？
 
 Set 对象允许你存储任何类型的唯一值，无论是原始值或者是对象引用。
 
@@ -1596,7 +1578,7 @@ const uniqueNums = [...new Set(numbers)]; // [1,2,3,4,5,6,7,8]
 - Map 数据结构。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
 - WeakMap 结构与 Map 结构类似，也是用于生成键值对的集合。但是 WeakMap 只接受对象作为键名（ null 除外），不接受其他类型的值作为键名。而且 WeakMap 的键名所指向的对象，不计入垃圾回收机制。
 
-### 46. 什么是Proxy？
+## 46. 什么是Proxy？
 
 Proxy 用于修改某些操作的默认行为，等同于在语言层面做出修改，所以属于一种“元编程”，即对编程语言进行编程。
 
@@ -1609,7 +1591,7 @@ Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界�
 以下47~64条是JavaScript中比较难的高级知识及相关手写实现，各位看官需慢慢细品
 ```
 
-### 47. 写一个通用的事件侦听器函数
+## 47. 写一个通用的事件侦听器函数
 
 ```
 const EventUtils = {
@@ -1666,7 +1648,7 @@ const EventUtils = {
 };
 ```
 
-### 48.  什么是函数式编程? JavaScript的哪些特性使其成为函数式语言的候选语言？
+## 48.  什么是函数式编程? JavaScript的哪些特性使其成为函数式语言的候选语言？
 
 函数式编程（通常缩写为FP）是通过编写纯函数，避免共享状态、可变数据、副作用 来构建软件的过程。数式编程是声明式 的而不是命令式 的，应用程序的状态是通过纯函数流动的。与面向对象编程形成对比，面向对象中应用程序的状态通常与对象中的方法共享和共处。
 
@@ -1674,7 +1656,7 @@ const EventUtils = {
 
 函数式的代码往往比命令式或面向对象的代码更简洁，更可预测，更容易测试 - 但如果不熟悉它以及与之相关的常见模式，函数式的代码也可能看起来更密集杂乱，并且 相关文献对新人来说是不好理解的。
 
-### 49. 什么是高阶函数？
+## 49. 什么是高阶函数？
 
 高阶函数只是将函数作为参数或返回值的函数。
 
@@ -1684,7 +1666,7 @@ function higherOrderFunction(param,callback){
 }
 ```
 
-### 50. 为什么函数被称为一等公民？
+## 50. 为什么函数被称为一等公民？
 
 在JavaScript中，函数不仅拥有一切传统函数的使用方式（声明和调用），而且可以做到像简单值一样:
 
@@ -1694,7 +1676,7 @@ function higherOrderFunction(param,callback){
 
 这样的函数也称之为第一级函数（`First-class Function`）。不仅如此，JavaScript中的函数还充当了类的构造函数的作用，同时又是一个Function类的实例(instance)。这样的多重身份让JavaScript的函数变得非常重要。
 
-### 51. 手动实现 `Array.prototype.map 方法`
+## 51. 手动实现 `Array.prototype.map 方法`
 
 map() 方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。
 
@@ -1716,7 +1698,7 @@ function map(arr, mapCallback) {
 }
 ```
 
-### 52. 手动实现`Array.prototype.filter`方法
+## 52. 手动实现`Array.prototype.filter`方法
 
 `filter()`方法创建一个新数组, 其包含通过所提供函数实现的测试的所有元素。
 
@@ -1742,7 +1724,7 @@ function filter(arr, filterCallback) {
 }
 ```
 
-### 53.  手动实现`Array.prototype.reduce`方法
+## 53.  手动实现`Array.prototype.reduce`方法
 
 [reduce()]() 方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。
 
@@ -1767,7 +1749,7 @@ function reduce(arr, reduceCallback, initialValue) {
 }
 ```
 
-### 54. js的深浅拷贝
+## 54. js的深浅拷贝
 
 JavaScript的深浅拷贝一直是个难点，如果现在面试官让我写一个深拷贝，我可能也只是能写出个基础版的。所以在写这条之前我拜读了收藏夹里各路大佬写的博文。具体可以看下面我贴的链接，这里只做简单的总结。
 
@@ -1974,7 +1956,7 @@ module.exports = {
 
 深拷贝的终极探索（99%的人都不知道）
 
-### 55. 手写call、apply及bind函数
+## 55. 手写call、apply及bind函数
 
 **call 函数的实现步骤：**
 
@@ -2089,7 +2071,7 @@ Function.prototype.myBind = function(context) {
 
 《JavaScript 深入之 call 和 apply 的模拟实现》
 
-### 56. 函数柯里化的实现
+## 56. 函数柯里化的实现
 
 ```
 // 函数柯里化指的是一种将使用多个参数的一个函数转换成一系列使用一个参数的函数的技术。
@@ -2128,7 +2110,7 @@ function curry(fn, ...args) {
 参考文章：
 《JavaScript 专题之函数柯里化》https://github.com/mqyqingfeng/Blog/issues/42
 
-### 57. js模拟new操作符的实现
+## 57. js模拟new操作符的实现
 
 这个问题如果你在掘金上搜，你可能会搜索到类似下面的回答：
 
@@ -2224,7 +2206,7 @@ function objectFactory(){
 }
 ```
 
-### 58. 什么是回调函数？回调函数有什么缺点
+## 58. 什么是回调函数？回调函数有什么缺点
 
 **回调函数**是一段可执行的代码段，它作为一个参数传递给其他的代码，其作用是在需要的时候方便调用这段（回调函数）代码。
 
@@ -2258,7 +2240,7 @@ setTimeout(() => {
 
 这就是典型的回调地狱，以上代码看起来不利于阅读和维护，事件一旦多起来就更是乱糟糟，所以在es6中提出了Promise和async/await来解决回调地狱的问题。当然，回调函数还存在着别的几个缺点，比如不能使用 try catch 捕获错误，不能直接 return。接下来的两条就是来解决这些问题的，咱们往下看。
 
-### 59. Promise是什么，可以手写实现一下吗？
+## 59. Promise是什么，可以手写实现一下吗？
 
 Promise，翻译过来是承诺，承诺它过一段时间会给你一个结果。从编程讲Promise 是异步编程的一种解决方案。下面是Promise在MDN的相关说明：
 
@@ -2351,7 +2333,7 @@ myPromise.prototype.then=function(onFullfilled,onRejected){
 
 【翻译】Promises/A+规范：https://www.ituring.com.cn/article/66566#
 
-### 60. `Iterator`是什么，有什么作用？
+## 60. `Iterator`是什么，有什么作用？
 
 `Iterator`是理解第24条的先决知识，也许是我IQ不够😭，`Iterator和Generator`看了很多遍还是一知半解，即使当时理解了，过一阵又忘得一干二净。。。
 
@@ -2397,7 +2379,7 @@ console.log(it.next())     // { value: 3, done: false }
 console.log(it.next())     // { value: undefined, done: true }
 ```
 
-### 61. `Generator`函数是什么，有什么作用？
+## 61. `Generator`函数是什么，有什么作用？
 
 Generator函数可以说是Iterator接口的具体实现方式。Generator 最大的特点就是可以控制函数的执行。
 
@@ -2422,7 +2404,7 @@ console.log(it.next(13)) // => {value: 42, done: true}
 
 `Generator` 函数一般见到的不多，其实也于他有点绕有关系，并且一般会配合 co 库去使用。当然，我们可以通过 `Generator` 函数解决回调地狱的问题。
 
-### 62. 什么是 `async/await` 及其如何工作,有什么优缺点？
+## 62. 什么是 `async/await` 及其如何工作,有什么优缺点？
 
 `async/await`是一种建立在Promise之上的编写异步或非阻塞代码的新方法，被普遍认为是 JS异步操作的最终且最优雅的解决方案。相对于 Promise 和回调，它的可读性和简洁度都更高。毕竟一直then()也很烦。
 
@@ -2520,7 +2502,7 @@ await关键字只能在async function中使用。在任何非async function的�
 以上21~25条就是JavaScript中主要的异步解决方案了，难度是有的，需要好好揣摩并加以练习。
 ```
 
-### 63. instanceof的原理是什么，如何实现
+## 63. instanceof的原理是什么，如何实现
 
 instanceof 可以正确的判断对象的类型，因为内部机制是通过判断对象的原型链中是不是能找到类型的 prototype。
 
@@ -2544,7 +2526,7 @@ function myInstanceof(left, right) {
 }
 ```
 
-### 64. js 的节流与防抖
+## 64. js 的节流与防抖
 
 **函数防抖** 是指在事件被触发 n 秒后再执行回调，如果在这 n 秒内事件又被触发，则重新计时。这可以使用在一些点击请求的事件上，避免因为用户的多次点击向后端发送多次请求。
 
@@ -2598,7 +2580,7 @@ function throttle(fn, delay) {
 
 《JS 的防抖与节流》https://juejin.im/entry/5b1d2d54f265da6e2545bfa4
 
-### 65. 什么是设计模式？
+## 65. 什么是设计模式？
 
 #### 1. 概念
 
@@ -2637,7 +2619,7 @@ function throttle(fn, delay) {
 2. **创建型模式（Creational Patterns）：** 处理对象的创建，根据实际情况使用合适的方式创建对象。常规的对象创建方式可能会导致设计上的问题，或增加设计的复杂度。创建型模式通过以某种方式控制对象的创建来解决问题。
 3. **行为型模式（Behavioral Patterns）：** 用于识别对象之间常见的交互模式并加以实现，如此，增加了这些交互的灵活性。
 
-### 66. 9种前端常见的设计模式
+## 66. 9种前端常见的设计模式
 
 #### 1. 外观模式（Facade Pattern）
 
