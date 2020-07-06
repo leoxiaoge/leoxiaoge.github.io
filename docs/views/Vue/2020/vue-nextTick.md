@@ -13,7 +13,7 @@ categories:
 // 修改数据
 vm.msg = 'Hello'
 // DOM 还没有更新
-Vue.$nextTick(function () {
+Vue.nextTick(function () {
   // DOM 更新了
 })
 ```
