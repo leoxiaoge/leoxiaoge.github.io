@@ -177,6 +177,18 @@ module.exports = {
   searchMaxSuggestions: 10,
   // 插件
   plugins: [
+    [
+      'vuepress-plugin-comment',
+      {
+        choosen: 'valine', 
+        // options选项中的所有参数，会传给Valine的配置
+        options: {
+          el: '#valine-vuepress-comment',
+          appId: 'Your own appId',
+          appKey: 'Your own appKey'
+        }
+      }
+    ],
     ["flowchart"], // 支持流程图
     [
       "@vuepress-reco/vuepress-plugin-bgm-player", // BGM播放器
