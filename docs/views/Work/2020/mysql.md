@@ -7,6 +7,18 @@ categories:
  -  Work
 ---
 
+在CMD命令窗口敲入命令 
+
+```
+mysql -hlocalhost -uroot -p
+```
+
+```
+source  + 要导入的.sql文件
+```
+
+
+
 ## **一、官网下载安装包**
 
 ## **1. 选择版本**

@@ -19,6 +19,14 @@ async function testSync() {
     const response = await ajax(URL);
     console.log(response);
 }
+
+function testSync().then((response) => {
+  console.log(response)
+}).catch((error) => {
+  console.log(error)
+}).finally(() => {
+
+})
 ```
 
 

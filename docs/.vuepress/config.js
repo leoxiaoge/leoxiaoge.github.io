@@ -44,7 +44,7 @@ module.exports = {
         "items": [
           {
             "text": "程序员在线工具",
-            "link": "http://www.ofmonkey.com"
+            "link": "https://www.bejson.com/"
           },
           {
             "text": "JSON编辑器",
