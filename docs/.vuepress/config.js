@@ -71,6 +71,10 @@ module.exports = {
             "link": "http://tool.chinaz.com/tools/native_ascii.aspx"
           },
           {
+            "text": "tinypng",
+            "link": "https://tinypng.com/"
+          },
+          {
             "text": "codelf",
             "link": "https://unbug.github.io/codelf/"
           },
@@ -81,6 +85,10 @@ module.exports = {
           {
             "text": "chrome",
             "link": "chrome://inspect/#devices"
+          },
+          {
+            "text": "vue3",
+            "link": "https://vue3js.cn/"
           }
         ]
       },
