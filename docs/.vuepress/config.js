@@ -130,6 +130,11 @@ module.exports = {
             "text": "掘金",
             "link": "https://juejin.im/user/5cd3aecb51882535d2567512",
             "icon": "reco-juejin"
+          },
+          {
+            "text": "MDN",
+            "link": "https://developer.mozilla.org/zh-CN/",
+            "icon": "reco-mdn"
           }
         ]
       }

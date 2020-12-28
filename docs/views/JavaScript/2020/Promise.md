@@ -39,9 +39,19 @@ Promise 对象代表了未来将要发生的事件，用来传递异步操作的
 
 ### 1、对象的状态不受外界影响。Promise 对象代表一个异步操作，有三种状态：
 
-- pending: 初始状态，不是成功或失败状态。
-- fulfilled: 意味着操作成功完成。
-- rejected: 意味着操作失败。
+- pending: 初始状态，不是成功或失败状态（执行中）。
+- fulfilled: 意味着操作成功完成（成功）。
+- rejected: 意味着操作失败（失败）。
+
+```
+new Promise(function(resolve, reject) {
+    if (/* 异步操作成功 */) {
+        resolve(value); //将Promise的状态由padding改为fulfilled
+    } else {
+        reject(error); //将Promise的状态由padding改为rejected
+    }
+})
+```
 
 只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。这也是 Promise 这个名字的由来，它的英语意思就是「承诺」，表示其他手段无法改变。
 
