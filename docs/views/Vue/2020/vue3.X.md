@@ -704,3 +704,476 @@ original.count++
 // 这里不会触发上方的 watchEffect，因为是 readonly。
 copy.count++ // warning!
 ```
+
+## vue特性方便以后项目重构
+
+## Vue 3.0 Composition-API基本特性体验
+
+### setup函数
+
+`setup()` 函数是 vue3 中专门为组件提供的新属性，相当于2.x版本中的`created`函数,之前版本的组件逻辑选项，现在都统一放在这个函数中处理。它为我们使用 vue3 的 `Composition API` 新特性提供了统一的入口,**setup** 函数会在相对于2.x来说，会在 **beforeCreate** 之后、**created** 之前执行！具体可以参考如下：
+
+| vue2.x           | vue3            |
+| ---------------- | --------------- |
+| ~~beforeCreate~~ | setup(替代)     |
+| ~~created~~      | setup(替代)     |
+| beforeMount      | onBeforeMount   |
+| mounted          | onMounted       |
+| beforeUpdate     | onBeforeUpdate  |
+| updated          | onUpdated       |
+| beforeDestroy    | onBeforeUnmount |
+| destroyed        | onUnmounted     |
+| errorCaptured    | onErrorCaptured |
+
+### 新钩子
+
+除了2.x生命周期等效项之外，Composition API还提供了以下debug hooks：
+
+- `onRenderTracked`
+- `onRenderTriggered`
+
+两个钩子都收到`DebuggerEvent`类似于`onTrack`和`onTrigger`观察者的选项：
+
+```
+export default {
+  onRenderTriggered(e) {
+    debugger
+    // inspect which dependency is causing the component to re-render
+  }
+}
+```
+
+### 依赖注入
+
+`provide`和`inject`启用类似于2.x `provide/inject`选项的依赖项注入。两者都只能在`setup()`当前活动实例期间调用。
+
+```
+import { provide, inject } from '@vue/composition-api'
+
+const ThemeSymbol = Symbol()
+
+const Ancestor = {
+  setup() {
+    provide(ThemeSymbol, 'dark')
+  }
+}
+
+const Descendent = {
+  setup() {
+    const theme = inject(ThemeSymbol, 'light' /* optional default value */)
+    return {
+      theme
+    }
+  }
+}
+```
+
+`inject`接受可选的默认值作为第二个参数。如果未提供默认值，并且在Provide上下文中找不到该属性，则`inject`返回`undefined`。
+
+**注入响应式数据**
+
+为了保持提供的值和注入的值之间的响应式，可以使用`ref`
+
+```
+// 在父组建中
+const themeRef = ref('dark')
+provide(ThemeSymbol, themeRef)
+
+// 组件中
+const theme = inject(ThemeSymbol, ref('light'))
+watchEffect(() => {
+  console.log(`theme set to: ${theme.value}`)
+})
+```
+
+1. 因为`setup`函数接收2个形参，第一个是`initProps`，即父组建传送过来的值！，第二个形参是一个**上下文对象**
+
+`setupContext`，这个对象的主要属性有 ：
+
+```
+attrs: Object    // 等同 vue 2.x中的 this.$attrs
+emit: ƒ ()       // 等同 this.$emit()
+isServer: false   // 是否是服务端渲染
+listeners: Object   // 等同 vue2.x中的this.$listeners
+parent: VueComponent  // 等同 vue2.x中的this.$parent
+refs: Object  // 等同 vue2.x中的this.$refs
+root: Vue  // 这个root是我们在main.js中，使用newVue()的时候，返回的全局唯一的实例对象，注意别和单文件组建中的this混淆了
+slots: {}   // 等同 vue2.x中的this.$slots
+ssrContext:{}	// 服务端渲染相关
+```
+
+⚠️**注意**：在 `setup()` 函数中无法访问到 `this`的，不管这个`this`指的是全局的的vue对象(即：在main.js 中使用new生成的那个全局的vue实例对象)，还是指单文件组建的对象。
+
+但是，如果我们想要访问当前组件的实例对象，那该怎么办呢？我们可以引入`getCurrentInstance`这个api,返回值就是当前组建的实例！
+
+```
+import { computed, getCurrentInstance } from "@vue/composition-api";
+export default {
+  name: "svg-icon",
+  props: {
+    iconClass: {
+      type: String,
+      required: true
+    },
+    className: {
+      type: String
+    }
+  },
+  setup(initProps,setupContext) { 
+  
+    const { ctx } = getCurrentInstance();
+    const iconName = computed(() => {
+      return `#icon-${initProps.iconClass}`;
+    });
+    const svgClass = computed(() => {
+      if (initProps.className) {
+        return "svg-icon " + initProps.className;
+      } else {
+        return "svg-icon";
+      }
+    });
+    return {
+      iconName,
+      svgClass
+    };
+  }
+};
+</script>
+```
+
+### Ref自动展开（unwrap）
+
+`ref()` 函数用来根据给定的值创建一个**响应式**的**数据对象**，`ref()` 函数调用的返回值是一个被包装后的对象（RefImpl），这个对象上只有一个 `.value` 属性，如果我们在`setup`函数中，想要访问的对象的值，可以通过`.value`来获取，但是如果是在`<template>`**模版中**，直接访问即可，不需要`.value`！
+
+```
+import { ref } from '@vue/composition-api'
+
+setup() {
+    const active = ref("");
+    const timeData = ref(36000000);
+    console.log('输出===>',timeData.value)
+    return {
+       active,
+       timeData
+    }
+}
+<template>
+  <p>活动状态：{{active}}</p>
+  <p>活动时间：{{timeData}}</p>
+</template>
+```
+
+⚠️注意：不要将`Array`放入`ref`中，数组索引属性无法进行自动展开，也**不要**使用 `Array` 直接存取 `ref` 对象:
+
+```
+const state = reactive({
+  list: [ref(0)],
+});
+// 不会自动展开, 须使用 `.value`
+state.list[0].value === 0; // true
+
+state.list.push(ref(1));
+// 不会自动展开, 须使用 `.value`
+state.list[1].value === 1; // true
+```
+
+当我们需要操作DOM的时候，比如我们在项目中使用`swiper`需要获取DOM,那么我们还可以这样👇！
+
+```
+  <div class="swiper-cls">
+      <swiper :options="swiperOption" ref="mySwiper">
+        <swiper-slide v-for="(img ,index) in tabImgs.value" :key="index">
+          <img class="slide_img" @click="handleClick(img.linkUrl)" :src="img.imgUrl" />
+        </swiper-slide>
+      </swiper>
+   </div>
+```
+
+然后在`setup`函数中定义一个`const mySwiper = ref(null);`，之前在vue2.x中，我们是通过`this.$refs.mySwiper`来获取DOM对象的，现在也可以使用`ref`函数代替，返回的`mySwiper`要和`template`中绑定的`ref`相同！
+
+```
+import { ref, onMounted } from "@vue/composition-api";
+setup(props, { attrs, slots, parent, root, emit, refs }) {
+	const mySwiper = ref(null);
+  onMounted(() => {
+    // 通过mySwiper.value 即可获取到DOM对象！
+    // 同时也可以使用vue2.x中的refs.mySwiper ，他其实mySwiper.value 是同一个DOM对象！
+    mySwiper.value.swiper.slideTo(3, 1000, false);
+  });
+  return {
+    mySwiper
+  }
+}
+```
+
+### reactive
+
+`reactive()` 函数接收一个普通对象，返回一个响应式的数据对象，等价于 `vue 2.x` 中的 `Vue.observable()` 函数，`vue 3.x` 中提供了 `reactive()` 函数，用来创建响应式的数据对象`Observer`，`ref`中我们一般存放的是**基本类型数据**，如果是引用类型的我们可以使用`reactive`函数。
+
+当`reactive`函数中，接收的类型是一个`Array`数组的时候，我们可以在这个`Array`外面在用对象包裹一层，然后给对象添加一个属性比如：`value`（这个属性名你可以自己随便叫什么），他的值就是这个数组！
+
+```
+<script>
+// 使用相关aip之前必须先引入
+import { ref, reactive } from "@vue/composition-api";
+export default {
+  name: "home",
+  setup(props, { attrs, slots, parent, root, emit, refs }) {
+    
+    const active = ref("");
+    const timeData = ref(36000000);
+    // 将tabImgs数组中每个对象都变成响应式的对象 
+    const tabImgs = reactive({
+      value: []
+    });
+    const ball = reactive({
+      show: false,
+      el: ""
+    });
+    return {
+      active,
+      timeData,
+      tabImgs,
+      ...toRefs(ball),
+    };
+  }
+};
+</script>
+```
+
+那么在`template`模版中我们想要访问这个数组的时候就是需要使用`.value`的形式来获取这个数组的值。
+
+```
+<template>
+    <div class="swiper-cls">
+      <swiper :options="swiperOption" ref="mySwiper">
+        <swiper-slide v-for="(img ,index) in tabImgs.value" :key="index">
+          <img class="slide_img" @click="handleClick(img.linkUrl)" :src="img.imgUrl" />
+        </swiper-slide>
+      </swiper>
+    </div>
+</template>
+```
+
+### isRef
+
+`isRef()` 用来判断某个值是否为 `ref()` 创建出来的对象；当需要展开某个可能为 `ref()` 创建出来的值的时候，可以使用`isRef`来判断！
+
+```
+import { isRef } from '@vue/composition-api'
+
+setup(){
+  const headerActive = ref(false);
+  // 在setup函数中，如果是响应式的对象，在访问属性的时候，一定要加上.value来访问！
+  const unwrapped = isRef(headerActive) ? headerActive.value : headerActive
+  return {}
+}
+```
+
+### toRefs
+
+`toRefs`函数会将**响应式对象**转换为**普通对象**，其中返回的对象上的每个属性都是指向原始对象中相应属性的`ref`，将一个对象上的所有属性转换成响应式的时候，将会非常有用！
+
+```
+import { reactive,toRefs } from '@vue/composition-api'
+setup(){
+  // ball 是一个 Observer
+  const ball = reactive({
+    show: false,
+    el: ""
+  });
+  // ballToRefs 就是一个普通的Object，但是ballToRefs里面的所有属性都是响应式的（RefImpl）
+  const ballToRefs  = toRefs(ball)
+  // ref和原始属性是“链接的”
+  ball.show = true
+  console.log(ballToRefs.show) // true
+  ballToRefs.show.value = false
+  console.log(ballToRefs.show) // false
+  return {
+    ...ballToRefs    // 将ballToRefs对象展开，我们就可以直接在template模板中直接这样使用这个对象上的所有属性！
+  }
+}
+```
+
+点击添加按钮，小球飞入购物车动画：
+
+```
+<template>  
+  <div class="ballWrap">
+      <transition @before-enter="beforeEnter" @enter="enter" @afterEnter="afterEnter">
+        <!-- 可以直接使用show-->
+        <div class="ball" v-if="show">
+          <li class="inner">
+            <span class="cubeic-add" @click="addToCart($event,item)">
+              <svg-icon class="add-icon" icon-class="add"></svg-icon>
+            </span>
+          </li>
+        </div>
+      </transition>
+   </div>
+</template>
+```
+
+### computed
+
+`computed`函数的第一个参数，可以接收一个函数，或者是一个对象！如果是函数默认是`getter`函数，并为`getter`返回的值返回一个只读的`ref`对象。
+
+```
+import { computed } from '@vue/composition-api'
+
+const count = ref(1)
+// computed接收一个函数作为入参
+const plusOne = computed(() => count.value + 1)
+
+console.log(plusOne.value) // 2
+
+plusOne.value++ // 错误，plusOne是只读的！
+```
+
+或者也可以是个对象，可以使用具有`get`和`set`功能的对象来创建可写`ref`对象。
+
+```
+const count = ref(1)
+// computed接收一个对象作为入参
+const plusOne = computed({
+  get: () => count.value + 1,
+  set: val => {
+    count.value = val - 1
+  }
+})
+
+plusOne.value = 1
+console.log(count.value) // 0
+```
+
+### watch
+
+```
+watch(source, cb, options?)
+```
+
+该`watch`API与2.x `this.$watch`（以及相应的`watch`选项）完全等效。
+
+#### 观察单一来源
+
+观察者数据源可以是返回值的getter函数，也可以直接是ref：
+
+```
+// watching a getter函数
+const state = reactive({ count: 0 })
+watch(
+  () => state.count, // 返回值的getter函数
+  (count, prevCount,onCleanup) => {
+    /* ... */
+  }
+)
+
+// directly watching a ref
+const count = ref(0)
+watch(
+  count, // 也可以直接是ref
+  (count, prevCount,onCleanup) => {
+  /* ... */
+})
+```
+
+#### watch多个来源
+
+观察者还可以使用数组同时监视多个源：
+
+```
+const me = reactive({ age: 24, name: 'gk' })
+// reactive类型的
+watch(
+  [() => me.age, () => me.name], // 监听reactive多个数据源，可以传入一个数组类型，返回getter函数
+  ([age, name], [oldAge, oldName]) => {
+    console.log(age) // 新的 age 值
+    console.log(name) // 新的 name 值
+    console.log(oldAge) // 旧的 age 值
+    console.log(oldName) // 新的 name 值
+  },
+  // options
+  {
+    lazy: true //默认 在 watch 被创建的时候执行回调函数中的代码，如果lazy为true ，怎创建的时候，不执行！
+  }
+)
+
+setInterval(() => {
+  me.age++
+  me.name = 'oldMe'
+}, 7000000)
+
+// ref类型的
+const work = ref('web')
+const addres = ref('sz')
+watch(
+  [work,address],  // 监听多个ref数据源
+  ([work, addres], [oldwork, oldaddres]) => {
+   //......
+  },
+  {
+    lazy: true 
+  }
+)
+```
+
+`watch`和组件的生命周期绑定，当组件卸载后，watch也将自动停止。在其他情况下，它返回停止句柄，可以调用该句柄以显式停止观察程序：
+
+```
+// watch 返回一个函数句柄，我们可以决定该watch的停止和开始！
+const stopWatch = watch(
+  [work,address],  // 监听多个ref数据源
+  ([work, addres], [oldwork, oldaddres]) => {
+   //......
+  },
+  {
+    lazy: true 
+  }
+)
+
+// 调用停止函数，清除对work和address的监视
+stopWatch()
+```
+
+#### 在 watch 中清除无效的异步任务
+
+```
+<div class="search-con">
+  <svg-icon class="search-icon" icon-class="search"></svg-icon>
+  <input v-focus placeholder="搜索、关键词" v-model="searchText" />
+</div>
+setup(props, { attrs, slots, parent, root, emit, refs }){
+  const CancelToken = root.$http.CancelToken 
+  const source = CancelToken.source() 
+  // 定义响应式数据 searchText
+  const searchText = ref('')
+
+  // 向后台发送异步请求
+  const getSearchResult = searchText => {
+   root.$http.post("http://test.happymmall.com/search",{text:searchText}, {
+     cancelToken: source.token
+   }).then(res => {
+    // .....
+   });
+  return source.cancel
+}
+
+// 定义 watch 监听
+watch(
+  searchText,
+  (searchText, oldSearchText, onCleanup) => {
+    // 发送axios请求，并得到取消axios请求的 cancel函数
+    const cancel = getSearchResult(searchText)
+
+    // 若 watch 监听被重复执行了，则会先清除上次未完成的异步请求
+    onCleanup(cancel)
+  },
+  // watch 刚被创建的时候不执行
+  { lazy: true }
+)
+
+  return {
+    searchText
+  }
+}
+```
