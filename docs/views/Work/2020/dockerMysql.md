@@ -7,6 +7,22 @@ categories:
  -  Work
 ---
 
+Docker：常用命令
+
+| **描述**                   | **命令**                                                     |
+| -------------------------- | ------------------------------------------------------------ |
+| 复制镜像                   | docker tag imageName:latest newName                          |
+| 移除镜像                   | docker rmi imageName                                         |
+| 查看全部镜像               | docker images                                                |
+| 启动某个镜像               | docker run --name containerName -d -p 暴露端口:镜像端口 imageName |
+| 查看全部容器               | docker ps                                                    |
+| 重启某个容器               | docker restart containerId                                   |
+| 进入某个容器内             | docker exec -it containerId bash                             |
+| 复制本地文件到docker容器   | docker cp /home/qbian/test.war containerId:/usr/local/tomcat/webapps/ |
+| 复制docker容器内文件到本地 | docker cp containerId:/usr/local/tomcat/webapps/test.war /home/qbian |
+
+
+
 ### 一、安装docker[#](https://www.cnblogs.com/sablier/p/11605606.html#607076870)
 
 windows 和 mac 版可以直接到官网下载 docker desktop

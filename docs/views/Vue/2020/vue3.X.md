@@ -1177,3 +1177,27 @@ watch(
   }
 }
 ```
+
+## 结束：
+
+vue3新增 Composition API。新的 API 兼容 Vue2.x，只需要在项目中单独引入 @vue/composition-api 这个包就能够解决我们目前 Vue2.x中存在的个别难题。比如：如何组织逻辑，以及如何在多个组件之间抽取和复用逻辑。基于 Vue 2.x 目前的 API 我们有一些常见的逻辑复用模式，但都或多或少存在一些问题：
+
+这些模式包括：
+
+1. Mixins
+2. 高阶组件 (Higher-order Components, aka HOCs)
+3. Renderless Components (基于 scoped slots / 作用域插槽封装逻辑的组件）
+
+总体来说，以上这些模式存在以下问题：
+
+1. 模版中的数据来源不清晰。举例来说，当一个组件中使用了多个 mixin 的时候，光看模版会很难分清一个属性到底是来自哪一个 mixin。HOC 也有类似的问题。
+2. 命名空间冲突。由不同开发者开发的 mixin 无法保证不会正好用到一样的属性或是方法名。HOC 在注入的 props 中也存在类似问题。
+3. 性能。HOC 和 Renderless Components 都需要额外的组件实例嵌套来封装逻辑，导致无谓的性能开销。
+
+vue3中，新增 `Composition API`。而且新的`API`兼容 `Vue2.x`，只需要在项目中，单独引入 `@vue/composition-api` 这个包就可以，就能够解决我们目前 以上大部分问题。同时，如果我直接升级到 `Vue3.x`，我要做的事情会更多，只要当前项目中使用到的第三方ui库，都需要重新改造，以及升级后的诸多坑要填！刚开始的时候，我就是直接在当前脚手架的基础上 `vue add vue-next` 安装升级，但是只要是有依赖第三方生态库的地方，就有许多的坑。。。
+
+`Vue3.x` 没有导出默认对象 `export default`，在第三方生态中，常用`Vue.xxx()`来进行依赖，现在这些语法需要重写，工作量可不小啊！
+
+如果是新团队、小型的项目，可以尝试使用vue3进行尝试开发，慢慢过度，当 `Vue3.x` 正式 发布 后，而且周边生态跟上来了，就可以直接用vue3了！
+
+在[bilibili](https://search.bilibili.com/all?keyword=VUE3.0&from_source=nav_search&spm_id_from=333.851.b_696e7465726e6174696f6e616c486561646572.10)直播的时候，Evan You也说了，目前vue3 beta版本，最重要的是**提升稳定性**，和对**第三方工具库的支持**，如果你是第三方库的作者，可以现在开始，熟悉熟悉源码了，我们开发者可以先读懂所有API的使用。

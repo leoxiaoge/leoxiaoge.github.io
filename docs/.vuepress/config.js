@@ -87,6 +87,10 @@ module.exports = {
             "link": "chrome://inspect/#devices"
           },
           {
+            "text": "ip查询",
+            "link": "https://www.ipaddress.com/"
+          },
+          {
             "text": "vue3",
             "link": "https://vue3js.cn/"
           }
