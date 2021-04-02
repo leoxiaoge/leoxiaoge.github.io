@@ -23,6 +23,16 @@ Docker：常用命令
 
 
 
+```
+create database mall character set utf8 collate utf8_general_ci;
+```
+
+```
+show databases;
+```
+
+
+
 ### 一、安装docker[#](https://www.cnblogs.com/sablier/p/11605606.html#607076870)
 
 windows 和 mac 版可以直接到官网下载 docker desktop

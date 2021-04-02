@@ -1,5 +1,5 @@
 ---
-title: Vue 组件间通信六种方式
+title: vuex的使用
 date: 2019-08-22
 tags:
  - Vue

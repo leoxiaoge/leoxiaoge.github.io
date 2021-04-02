@@ -7,6 +7,8 @@ categories:
  -  JavaScript
 ---
 
+
+create database mall character set utf8 collate utf8_general_ci
 在最新的ES7（ES2017）中提出的前端异步特性：async、await。
 
 async顾名思义是“异步”的意思，async用于声明一个函数是异步的。而await从字面意思上是“等待”的意思，就是用于等待异步完成。并且await只能在async函数中使用

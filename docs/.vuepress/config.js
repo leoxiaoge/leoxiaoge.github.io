@@ -174,7 +174,8 @@ module.exports = {
     "lastUpdated": "Last Updated",
     "author": "李楚标",
     "authorAvatar": "/avatar.png",
-    "record": "粤ICP备20005033号-1",
+    "record": "粤ICP备18003568号-2",
+    "recordLink": "https://beian.miit.gov.cn",
     "startYear": "2017"
   },
   "markdown": {

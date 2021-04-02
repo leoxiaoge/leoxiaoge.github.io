@@ -1,5 +1,10 @@
 ### Quick start
 
+
+```
+<script data-ad-client="ca-pub-7005086867582992" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+```
+
 npx
 ```
 npx @vuepress-reco/theme-cli init my-blog
